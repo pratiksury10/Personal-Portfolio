@@ -2,75 +2,111 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, {useState} from "react";
+// import { useSession,signIn ,signOut } from "next-auth/react";
+// import { useRouter } from "next/navigation";
 
 const Home = () => {
 
-  const [activeLink, setActiveLink] = useState("");
+  // const { data : session, status} = useSession();
+  // const router = useRouter();
+  const [activeLink, setActiveLink] = useState<string>("");
 
-  const handleClick = (linkName) => {
+  const handleClick = (linkName:string) => {
     setActiveLink(linkName);
   }
+
+  // const handleSignOut = async () => {
+  //   await signOut();
+  //   router.push('/login'); // Redirect to home after signing out
+  // };
+
+  // const handleSignIn = async () => {
+  //   const result = await signIn('google', { redirect: false });
+  //   if (result?.error) {
+  //     console.error(result.error);
+  //   } else {
+  //     router.push('/'); // Redirect to home after signing in
+  //   }
+  // };
+
+
   return (
     <div className="min-h-screen flex flex-col bg-slate-200">
       {/* Navigation Bar */}
       <div className="w-full bg-indigo-600 text-white px-8 py-4">
         <nav className="max-w-7xl mx-auto">
         <ul className="flex flex-row justify-between items-center">
-            <li>
-              <a
-                href="/"
-                className={`text-lg font-medium ${
-                  activeLink === "home" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("home")}
-              >
-                Home
-              </a>
+        <li>
+              <Link href="/" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "home" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("home")}
+                >
+                  Home
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/intro"
-                className={`text-lg font-medium ${
-                  activeLink === "intro" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("intro")}
-              >
-                My Intro
-              </a>
+              <Link href="/intro" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "intro" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("intro")}
+                >
+                  My Intro
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/services"
-                className={`text-lg font-medium ${
-                  activeLink === "services" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("services")}
-              >
-                Services
-              </a>
+              <Link href="/services" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "services" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("services")}
+                >
+                  Services
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/blog"
-                className={`text-lg font-medium ${
-                  activeLink === "blog" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("blog")}
-              >
-                Blog
-              </a>
+              <Link href="/blog" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "blog" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("blog")}
+                >
+                  Blog
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
-                className={`text-lg font-medium ${
-                  activeLink === "contact" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("contact")}
-              >
-                Contact Me
-              </a>
+              <Link href="/contact" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "contact" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("contact")}
+                >
+                  Contact Me
+                </span>
+              </Link>
             </li>
+            {/* <li>
+              {session ? (
+                <button onClick={() => signOut()} className="text-lg font-medium hover:text-green-300">
+                  Sign Out
+                </button>
+              ) : (
+                <Link href="/login" passHref>
+                  <span className="text-lg font-medium hover:text-green-300">Sign In</span>
+                </Link>
+              )}
+            </li> */}
           </ul>
         </nav>
       </div>
@@ -89,7 +125,7 @@ const Home = () => {
               </div>
 
               <div className="flex space-x-6 mt-8">
-                <a
+                <Link
                   href="/Resume_Pratik_Suryawanshi.pdf"
                   download="Resume_Pratik_Suryawanshi.pdf"
                   className="px-6 py-3 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white rounded-lg 
@@ -97,15 +133,15 @@ const Home = () => {
              transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Download CV
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/contact"
                   className="px-6 py-3 bg-gradient-to-r from-[#2563EB] to-[#3B82F6] text-white rounded-lg 
              hover:from-[#2563EB] hover:to-[#38BDF8] transform hover:scale-105 
              transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Contact Me
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -115,9 +151,11 @@ const Home = () => {
             <div className="overflow-hidden rounded-full w-[400px] h-[400px] shadow-2xl 
                           transform hover:scale-105 transition-all duration-500
                           border-4 border-white hover:border-blue-400">
-              <img
+              <Image
                 src="/Demo_pic.jpg"
                 alt="Demo"
+                width={500} 
+                height={300}
                 className="w-full h-full object-cover transform hover:scale-110 
                          transition-transform duration-500"
               />

@@ -3,9 +3,9 @@ import Link from "next/link";
 import React, {useState} from "react";
 
 const Contact = () => {
-        const [activeLink, setActiveLink] = useState("");
+        const [activeLink, setActiveLink] = useState<string>("");
       
-        const handleClick = (linkName) => {
+        const handleClick = (linkName : string) => {
           setActiveLink(linkName);
         }
   return (
@@ -14,60 +14,65 @@ const Contact = () => {
       <div className="w-full bg-indigo-600 text-white px-8 py-4">
       <nav className="max-w-7xl mx-auto">
         <ul className="flex flex-row justify-between items-center">
-            <li>
-              <a
-                href="/"
-                className={`text-lg font-medium ${
-                  activeLink === "home" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("home")}
-              >
-                Home
-              </a>
+        <li>
+              <Link href="/" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "home" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("home")}
+                >
+                  Home
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/intro"
-                className={`text-lg font-medium ${
-                  activeLink === "intro" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("intro")}
-              >
-                My Intro
-              </a>
+              <Link href="/intro" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "intro" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("intro")}
+                >
+                  My Intro
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/services"
-                className={`text-lg font-medium ${
-                  activeLink === "services" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("services")}
-              >
-                Services
-              </a>
+              <Link href="/services" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "services" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("services")}
+                >
+                  Services
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/blog"
-                className={`text-lg font-medium ${
-                  activeLink === "blog" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("blog")}
-              >
-                Blog
-              </a>
+              <Link href="/blog" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "blog" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("blog")}
+                >
+                  Blog
+                </span>
+              </Link>
             </li>
             <li>
-              <a
-                href="/contact"
-                className={`text-lg font-medium ${
-                  activeLink === "contact" ? "text-yellow-300" : "hover:text-green-300"
-                }`}
-                onClick={() => handleClick("contact")}
-              >
-                Contact Me
-              </a>
+              <Link href="/contact" passHref>
+                <span
+                  className={`text-lg font-medium ${
+                    activeLink === "contact" ? "text-yellow-300" : "hover:text-green-300"
+                  }`}
+                  onClick={() => handleClick("contact")}
+                >
+                  Contact Me
+                </span>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -77,24 +82,24 @@ const Contact = () => {
       <div className="flex-1 container mx-auto px-6 lg:px-8 mt-12">
         <h1 className="text-4xl font-semibold text-blue-600 mb-6">Contact Me</h1>
         <p className="text-lg text-gray-700 mb-6">
-          I'm always open to connect! Feel free to reach out to me through any of the following methods:
+          I&apos;m always open to connect! Feel free to reach out to me through any of the following methods:
         </p>
 
         <div className="space-y-4">
           {/* Phone Number */}
           <div className="flex items-center text-lg text-gray-700">
             <span className="font-semibold text-blue-600 mr-4">Phone:</span>
-            <a href="tel:+918355887370" className="hover:text-blue-500">
+            <Link href="tel:+918355887370" className="hover:text-blue-500">
               8355887370
-            </a>
+            </Link>
           </div>
 
           {/* Email Address */}
           <div className="flex items-center text-lg text-gray-700">
             <span className="font-semibold text-blue-600 mr-4">Email:</span>
-            <a href="mailto:pratik07458@gmail.com" className="hover:text-blue-500">
+            <Link href="mailto:pratik07458@gmail.com" className="hover:text-blue-500">
               pratik07458@gmail.com
-            </a>
+            </Link>
           </div>
         </div>
       </div>

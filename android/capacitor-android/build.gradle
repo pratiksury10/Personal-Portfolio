@@ -1,0 +1,12 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 33 // Use the appropriate SDK version
+    sourceSets {
+        main.java.srcDirs += 'src/main/java'
+    }
+}
+
+dependencies {
+    implementation 'com.getcapacitor:capacitor-android:latest' // Use the latest version
+}
