@@ -79,11 +79,20 @@ const Intro = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto mt-16 px-6">
+      <div className="container mx-auto mt-10 px-10">
         <h1 className="text-4xl font-semibold text-blue-600 mb-6">My Introduction</h1>
         <p className="text-lg text-gray-700 mb-6">
           Hi, I&apos;m <strong>Pratik Suryawanshi</strong>, a passionate developer...
         </p>
+        <p className="text-lg text-gray-700 mb-6">
+    I am particularly interested in:
+    <ul className="list-disc list-inside mt-2">
+      <li>Front End Developer</li>
+      <li>Cloud Computing</li>
+      <li>Blockchain Technology</li>
+      <li>User Experience Design</li>
+    </ul>
+  </p>
       </div>
 
       {/* Footer */}

@@ -2,33 +2,16 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, {useState} from "react";
-// import { useSession,signIn ,signOut } from "next-auth/react";
-// import { useRouter } from "next/navigation";
+
 
 const Home = () => {
 
-  // const { data : session, status} = useSession();
-  // const router = useRouter();
+
   const [activeLink, setActiveLink] = useState<string>("");
 
   const handleClick = (linkName:string) => {
     setActiveLink(linkName);
   }
-
-  // const handleSignOut = async () => {
-  //   await signOut();
-  //   router.push('/login'); // Redirect to home after signing out
-  // };
-
-  // const handleSignIn = async () => {
-  //   const result = await signIn('google', { redirect: false });
-  //   if (result?.error) {
-  //     console.error(result.error);
-  //   } else {
-  //     router.push('/'); // Redirect to home after signing in
-  //   }
-  // };
-
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-200">
@@ -96,17 +79,6 @@ const Home = () => {
                 </span>
               </Link>
             </li>
-            {/* <li>
-              {session ? (
-                <button onClick={() => signOut()} className="text-lg font-medium hover:text-green-300">
-                  Sign Out
-                </button>
-              ) : (
-                <Link href="/login" passHref>
-                  <span className="text-lg font-medium hover:text-green-300">Sign In</span>
-                </Link>
-              )}
-            </li> */}
           </ul>
         </nav>
       </div>

@@ -102,10 +102,22 @@ const Contact = () => {
             </Link>
           </div>
         </div>
+
+        <div className="mt-8">
+          <h2 className="text-2xl font-semibold text-blue-600 mb-4">My Location</h2>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.622113567535!2d-122.08418189999999!3d37.42240580000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808fbb1cd91f8617%3A0x1c8432b9340fdff!2s1600%20Amphitheatre%20Pkwy%2C%20Mountain%20View%2C%20CA%2094043%2C%20USA!5e0!3m2!1sen!2sin!4v1741778518782!5m2!1sen!2sin" 
+          width="1420" 
+          height="550" 
+          style={{border:0}}
+          allowFullScreen={true}
+          loading="lazy" 
+          referrerPolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white text-center py-4 mt-auto">
+      <footer className="fixed bottom-0 left-0 w-full bg-gray-800 text-white text-center py-4">
         <p>&copy; 2025 Pratik Suryawanshi. All rights reserved.</p>
       </footer>
     </div>
